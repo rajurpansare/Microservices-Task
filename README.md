@@ -11,10 +11,11 @@ This document provides details on testing various services after running the `do
 - **Base URL:** `http://localhost:3000`
 - **Endpoints:**
   - **List Users:**  
+   
     ```
-    curl http://localhost:3000/users
-    ```
-    Or open in your browser: [http://localhost:3000/users](http://localhost:3000/users)
+    Output: [http://localhost:3000/users]
+    <img width="494" height="231" alt="Screenshot 2026-04-25 at 5 02 54 PM" src="https://github.com/user-attachments/assets/46577a40-2e41-4694-9579-b13ed90a3eb6" />
+
 
 ---
 
