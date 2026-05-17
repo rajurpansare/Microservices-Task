@@ -2,9 +2,27 @@
 # Kubernetes Microservices Deployment
 
 ## Project Overview
-This project deploys four Node.js microservices on Kubernetes using Minikube.
+This project demonstrates deployment of a containerized Node.js microservices application on Kubernetes using Minikube. The application architecture follows the microservices approach where multiple independent services communicate with each other within a Kubernetes cluster.
 
-### Services
+The project focuses on Kubernetes deployments, service configuration, container orchestration, service discovery, and validation of inter-service communication using Minikube.
+
+---
+## Objective
+
+The main objective of this project is to:
+
+- Deploy multiple Node.js microservices on Kubernetes
+- Configure Kubernetes Deployments and Services
+- Enable communication between services inside the cluster
+- Use Minikube as the local Kubernetes environment
+- Validate application accessibility and pod health
+- Understand container orchestration concepts using Kubernetes
+---
+
+## Services
+
+The application consists of four containerized Node.js microservices:
+
 | Service | Port | Purpose |
 |---|---|---|
 | User Service | 3000 | Handles user data |
@@ -12,36 +30,78 @@ This project deploys four Node.js microservices on Kubernetes using Minikube.
 | Order Service | 3002 | Handles order data |
 | Gateway Service | 3003 | API Gateway for routing requests |
 
----
+The Gateway Service serves as the external access point for the application and routes requests to internal services.
 
-## Step 1: Install Required Tools
-
-Docker Desktop
-Minikube
-kubectl
 ---
 
 ## Step 2: Project Structure
 
-Create folders:
-
-```bash
-mkdir -p submission/deployments
-mkdir -p submission/services
-mkdir -p submission/ingress
-mkdir -p submission/screenshots
-```
-
-Final structure:
-
 ```text
-submission/
+Submission/
 ├── deployments/
+│   ├── user-service.yaml
+│   ├── product-service.yaml
+│   ├── order-service.yaml
+│   └── gateway-service.yaml
+│
 ├── services/
-├── ingress/
+│   ├── user-service.yaml
+│   ├── product-service.yaml
+│   ├── order-service.yaml
+│   └── gateway-service.yaml
+│
 ├── screenshots/
+│   ├── pods.png
+│   ├── logs.png
+│   └── service-test.png
+│
 └── README.md
 ```
+
+---
+
+# Technologies Used
+
+The following technologies and tools were used in this project:
+
+- Kubernetes
+- Minikube
+- Docker Desktop
+- Node.js
+- kubectl
+- Git & GitHub
+
+---
+
+
+## Kubernetes Resources Implemented
+
+### Deployments
+
+Separate Kubernetes Deployment manifests were created for all four microservices.
+
+Each deployment includes:
+
+- Container image configuration
+- Labels and selectors
+- Resource requests and limits
+- Environment variables
+- Replica configuration
+- Liveness and readiness probe configuration
+
+Deployments ensure high availability and automated pod management inside the cluster.
+
+---
+
+## Services
+
+ Service | Port | Purpose |
+|---|---|---|
+| User Service | 3000 | Handles user data |
+| Product Service | 3001 | Handles product data |
+| Order Service | 3002 | Handles order data |
+| Gateway Service | 3003 | API Gateway for routing requests |
+
 
 ---
 
