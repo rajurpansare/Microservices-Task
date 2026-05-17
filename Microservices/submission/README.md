@@ -127,9 +127,9 @@ kubectl get pods
 
 Output:
 
-```bash
-<img width="528" height="118" alt="Screenshot 2026-05-17 at 8 12 46 PM" src="https://github.com/user-attachments/assets/cedf61e7-3bb2-48c1-87ba-fc1c9c4a6b83" />
-```
+
+<img width="535" height="88" alt="Screenshot 2026-05-17 at 4 31 30 PM" src="https://github.com/user-attachments/assets/ae49927a-8f8e-4949-8168-77a29b826e2d" />
+
 
 ---
 
@@ -141,9 +141,8 @@ kubectl get svc
 
 Output:
 
-```bash
-<img width="559" height="101" alt="Screenshot 2026-05-17 at 8 15 24 PM" src="https://github.com/user-attachments/assets/98162278-e9f0-40c0-81a0-799605b187b3" />
-```
+<img width="559" height="101" alt="Screenshot 2026-05-17 at 8 15 24 PM" src="https://github.com/user-attachments/assets/98162278-e9f0-40c0-81a0-799605b187b3" /> 
+
 
 ---
 
@@ -162,6 +161,7 @@ curl http://localhost:3003/api/products
 ```bash
 curl http://localhost:3003/api/orders
 ```
+Output: 
 
 <img width="589" height="86" alt="Screenshot 2026-05-17 at 8 19 26 PM" src="https://github.com/user-attachments/assets/e2504c76-9aaa-437b-ae5f-5c05422efd48" />
 
@@ -177,10 +177,13 @@ curl -X POST http://localhost:3003/api/orders \
   "productId":1
 }'
 ```
+Output: 
+
+<img width="660" height="100" alt="Screenshot 2026-05-17 at 8 25 06 PM" src="https://github.com/user-attachments/assets/64c9a73f-f3fb-4730-bb99-c3b963558fea" />
 
 ---
 
-# Step 11: Check Logs
+## Logs
 
 Gateway logs:
 
@@ -205,161 +208,21 @@ Order service logs:
 ```bash
 kubectl logs deployment/order-service
 ```
+Output:
+
+<img width="583" height="114" alt="Screenshot 2026-05-17 at 8 25 48 PM" src="https://github.com/user-attachments/assets/188814ca-d557-496f-ac44-63321196bd75" />
 
 ---
 
-# Step 13: Capture Screenshots 📸
+## Screenshots 📸
 
-## Pods Screenshot
-
-```bash
-kubectl get pods
-```
-
-Save screenshot as:
-
-```text
-submission/screenshots/pods.png
-```
+Pods Screenshot
+Logs Screenshot
+API Screenshot
 
 ---
+Author
 
-## Logs Screenshot
-
-```bash
-kubectl logs deployment/gateway-service
-```
-
-Save as:
-
-```text
-submission/screenshots/logs.png
-```
+Rajendra Raghunath Pansare
 
 ---
-
-## API Test Screenshot
-
-Use:
-
-```bash
-curl http://localhost:3003/api/users
-```
-
-Save as:
-
-```text
-submission/screenshots/service-test.png
-```
-
----
-
-# Step 14: Create README.md
-
-Create file:
-
-```text
-submission/README.md
-```
-
-Include:
-
-- Project overview
-- Minikube setup
-- Docker image build steps
-- Kubernetes deployment steps
-- Service testing commands
-- Ingress configuration
-- Troubleshooting section
-
----
-
-# Troubleshooting Guide 🧰
-
-## Pods Stuck in ImagePullBackOff
-
-Solution:
-
-```bash
-minikube image load user-service:v1
-```
-
----
-
-## Check Pod Details
-
-```bash
-kubectl describe pod <pod-name>
-```
-
----
-
-## Restart Deployment
-
-```bash
-kubectl rollout restart deployment gateway-service
-```
-
----
-
-## Verify Service Discovery
-
-Run temporary pod:
-
-```bash
-kubectl run testpod --image=busybox -it --rm -- sh
-```
-
-Inside pod:
-
-```bash
-wget -qO- http://user-service:3000/users
-```
-
-If response comes back, Kubernetes DNS is working correctly.
-
----
-
-# Final Submission Checklist ✅
-
-Before creating submission.zip verify:
-
-- All pods are Running
-- All services are created
-- APIs are working
-- Screenshots are added
-- README.md exists
-- ingress.yaml added if attempting bonus task
-
----
-
-# Create Final ZIP
-
-```bash
-zip -r submission.zip submission/
-```
-
----
-
-# Important Viva Questions 🎯
-
-## Why use ClusterIP?
-ClusterIP allows internal communication between services inside Kubernetes.
-
-## Difference between Deployment and Service?
-- Deployment manages pods.
-- Service exposes pods using stable networking.
-
-## What is readiness probe?
-Checks whether pod is ready to receive traffic.
-
-## What is liveness probe?
-Checks whether application is alive. Kubernetes restarts failed containers automatically.
-
-## Why use Ingress?
-Ingress provides centralized routing and external access.
-
----
-
-Your Kubernetes cluster is now transformed into a tiny digital city where services gossip through DNS names, pods regenerate like sci‑fi clones, and Ingress acts like an air traffic controller directing API packets through invisible sky-lanes ☸️
-
