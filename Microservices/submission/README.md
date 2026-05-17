@@ -116,20 +116,19 @@ Docker container log inspection
 Gateway Service accessibility testing
 Minikube service exposure testing
 All microservices were successfully deployed and reached Running state inside the Kubernetes cluster.
+
+
 Check pods:
+
 
 ```bash
 kubectl get pods
 ```
 
-Expected:
+Output:
 
 ```bash
-NAME                                READY   STATUS
-user-service-xxxx                   1/1     Running
-product-service-xxxx                1/1     Running
-order-service-xxxx                  1/1     Running
-gateway-service-xxxx                1/1     Running
+<img width="528" height="118" alt="Screenshot 2026-05-17 at 8 12 46 PM" src="https://github.com/user-attachments/assets/cedf61e7-3bb2-48c1-87ba-fc1c9c4a6b83" />
 ```
 
 ---
@@ -140,62 +139,31 @@ Check services:
 kubectl get svc
 ```
 
-Expected:
+Output:
 
 ```bash
-NAME              TYPE        CLUSTER-IP
-gateway-service   ClusterIP   xxx.xxx.xxx.xxx
-order-service     ClusterIP   xxx.xxx.xxx.xxx
-product-service   ClusterIP   xxx.xxx.xxx.xxx
-user-service      ClusterIP   xxx.xxx.xxx.xxx
+<img width="559" height="101" alt="Screenshot 2026-05-17 at 8 15 24 PM" src="https://github.com/user-attachments/assets/98162278-e9f0-40c0-81a0-799605b187b3" />
 ```
 
 ---
 
-# Step 10: Test Inter-Service Communication
+Check Inter-Service Communication API
 
-## Port Forward Gateway
-
-```bash
-kubectl port-forward svc/gateway-service 3003:3003
-```
-
-Open new terminal.
-
----
-
-## Test Users API
+API Test
 
 ```bash
 curl http://localhost:3003/api/users
 ```
 
-Expected:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "John Doe"
-  }
-]
-```
-
----
-
-## Test Products API
-
 ```bash
 curl http://localhost:3003/api/products
 ```
 
----
-
-## Test Orders API
-
 ```bash
 curl http://localhost:3003/api/orders
 ```
+
+<img width="589" height="86" alt="Screenshot 2026-05-17 at 8 19 26 PM" src="https://github.com/user-attachments/assets/e2504c76-9aaa-437b-ae5f-5c05422efd48" />
 
 ---
 
