@@ -22,22 +22,17 @@ The main objective of this project is to:
 
 ---
 
-# Application Components
-
-The application consists of four containerized Node.js microservices:
-
-| Service Name | Description | Port |
+## Services
+| Service | Port | Purpose |
 |---|---|---|
-| User Service | Handles user-related operations | 3000 |
-| Product Service | Handles product-related operations | 3001 |
-| Order Service | Handles order-related operations | 3002 |
-| Gateway Service | Acts as API gateway and entry point | 3003 |
-
-The Gateway Service serves as the external access point for the application and routes requests to internal services.
+| User Service | 3000 | Handles user data |
+| Product Service | 3001 | Handles product data |
+| Order Service | 3002 | Handles order data |
+| Gateway Service | 3003 | API Gateway for routing requests |
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```text
 Submission/
